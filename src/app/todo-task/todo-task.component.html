@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="col-lg-2">
+    <div class="row">
+      <button class="btn btn-primary" style="margin: 0 auto;" (click)="logout()">Wyloguj mnie!</button>
+    </div>
+    <div class="row" style="text-align: center;">
+      <p class="email">(zalogowany jako: {{authService.user.email}})</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <app-add-task></app-add-task>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 task-list shadow-sm p-3 mb-5 rounded todo-div">
+  <ng-container *ngIf="taskList.length > 0; else noTask">
+  <h4 [ngStyle]="{color: getColor()}">Zadania do wykonania: <span class="badge badge-danger">{{taskList.length}}</span></h4> <br><br>
+    <ng-container *ngFor="let task of taskList; let i = index; let odd = odd">
+      <div [ngClass]="{'div-odd': odd, 'div-last': taskList.length === 1}" class="new-task shadow-sm rounded">
+        <span class="date-created">{{task.created}}</span>
+        <div class="row">
+          <div class="col-lg-8 col-md-7">
+              <p>{{ task.name | transformTask: '.'}}</p>
+          </div>
+          <div class="col-lg-4 col-md-5">
+              <button type="button" class="btn btn-danger" (click)="remove(task)">Usuń</button>
+              <button type="button" class="btn btn-primary" (click)="done(task)">Zrobione</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #noTask>
+    <h4>Braka zadań do wykonania, masz wolny czas!</h4>
+  </ng-template>
+  </div>
+  <div class="col-lg-4">
+    <app-done-task></app-done-task>
+  </div>
+</div>
+<button (click)="save()" class="btn btn-danger">dodaj do bazy</button>
+</div>

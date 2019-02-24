@@ -1,0 +1,16 @@
+div {
+  background: rgb(255, 249, 221);
+  padding: 20px;
+}
+li {
+  padding-bottom: 12px;
+  position: relative;
+  cursor: pointer;
+}
+.date {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 10px;
+  font-weight: 600;
+}

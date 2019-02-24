@@ -1,0 +1,25 @@
+<div class="container-fluid">
+      <div class="col-lg-6 col-md-8 col-xs-11  col-sm-11 login-form shadow mb-5 bg-white rounded">
+        <div class="row">
+          <div class="col-lg-5 login-panel">
+              <h3>Panel logowania</h3>
+              <form (ngSubmit)="login(formData)" #formData="ngForm">
+                  <div class="form-group">
+                    <label for="login">Adres e-maila:</label>
+                    <input ngModel type="email" name="email" class="form-control" required email>
+                  </div>
+                  <div class="form-group">
+                    <label for="login">Hasło:</label>
+                    <input ngModel type="password" name="password" class="form-control" required>
+                  </div>
+                    <button type="submit" class="btn btn-success" style="margin-right: 20px;" [disabled]="formData.invalid">Zaloguj</button>
+                    <button type="button" (click)="signup(formData)" class="btn btn-primary" [disabled]="formData.invalid">Rejestracja</button>
+                  </form>
+          </div>
+          <div class="col-lg-7">
+              <h4>Projekt lista zadań</h4>
+              <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.</p><p> Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.</p>
+            </div>
+        </div>
+      </div>
+  </div>
